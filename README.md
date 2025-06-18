@@ -1,161 +1,94 @@
 
-# ✈️ Quote Request App – Full Stack (Angular + NestJS)
+# 🚀 Quote Request UI
 
-This is a full-stack project composed of:
-
-- **Frontend**: Angular + Tailwind CSS
-- **Backend**: NestJS API serving mock data
-
-Great for demonstrating form-driven UI/UX and front-end/backend data flow without persistent storage.
-
----
+A responsive Angular standalone component UI for collecting quote request information, styled with Tailwind CSS.
 
 ## 📦 Features
 
-### Frontend
-
-- Responsive layout with Tailwind CSS
-- Angular Standalone Components
-- Mock data rendering with `*ngFor`
-- Clean, modular file structure
-- SVG icon support
-
-### Backend
-
-- NestJS mock API
-- `GET /quote-request` for sample data
-- `POST /quote-request/pilots` to simulate pilot creation
-- CORS-enabled for frontend communication
-- DTOs and interfaces with strong typing
-
----
+- Responsive layout (mobile & desktop)
+- Modular and reusable components (`StepSectionComponent`)
+- Clean TailwindCSS styling
+- Mock data-driven rendering using `*ngFor`
+- SVG-based icon support
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: Angular, Tailwind CSS, TypeScript, PostCSS
-- **Backend**: NestJS, TypeScript, class-validator
+- Angular (Standalone Components)
+- Tailwind CSS
+- TypeScript
+- PostCSS
 
----
+## 📁 Project Structure (Simplified)
 
-## 🚀 Getting Started
+```
+src/
+├── app/
+│   ├── quote-request/
+│   │   ├── quote-request.component.ts
+│   │   ├── quote-request.component.html
+│   │   └── quote-request.component.css
+│   └── step-section/
+│       ├── step-section.component.ts
+│       ├── step-section.component.html
+│       └── step-section.component.css
+├── main.ts
+├── styles.css
+├── tailwind.config.js
+└── postcss.config.js
+```
 
-### 1. Clone the Monorepo
+## ⚙️ Getting Started
+
+### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/quote-request-fullstack.git
-cd quote-request-fullstack
+git clone https://github.com/yourusername/quote-request-ui.git
+cd quote-request-ui
 ```
 
-Directory structure:
-```
-quote-request-fullstack/
-├── frontend/
-└── backend/
-```
+### 2. Install Dependencies
 
----
-
-### 2. Run the Backend
+Make sure you’re using **Node.js v18+**.
 
 ```bash
-cd backend
-npm install
-npm run start:dev
-```
-
-📍 API runs at: `http://localhost:3000`
-
----
-
-### 3. Run the Frontend
-
-```bash
-cd ../frontend
 npm install --legacy-peer-deps
+```
+
+> If you encounter issues, try:
+> ```bash
+> npm install --force
+> ```
+
+### 3. Start the Development Server
+
+```bash
 ng serve
 ```
 
-🌐 App runs at: `http://localhost:4200`
+Then open your browser at: http://localhost:4200
 
----
+## 🧪 Testing
 
-## 📁 Project Structure
-
-### Frontend (Angular)
-
-```
-frontend/
-├── src/
-│   ├── app/
-│   │   ├── quote-request/
-│   │   └── step-section/
-├── tailwind.config.js
-├── postcss.config.js
-└── styles.css
+```bash
+ng test
 ```
 
-### Backend (NestJS)
+## 🧱 Building for Production
 
-```
-backend/
-├── src/
-│   ├── quote-request/
-│   │   ├── controller, service, dto, interfaces, mock data
-│   └── main.ts, app.module.ts
+```bash
+ng build --configuration production
 ```
 
----
+## 🐛 Common Issues
 
-## 📋 API Overview
+### Tailwind classes not applying?
 
-### ✅ `GET /quote-request`
-
-Returns:
-```json
-{
-  "insured": { "name": "John Doe", "status": "complete" },
-  "aircraft": [ { "id": 1, "registration": "N123AB", "model": "787-9 Dreamliner", "status": "complete" } ],
-  "pilots": [
-    { "id": 1, "name": "Pedro Morais", "status": "pending" },
-    { "id": 2, "name": "John Doe", "status": "updated" }
-  ]
-}
-```
-
-### 🆕 `POST /quote-request/pilots`
-
-Send:
-```json
-{
-  "name": "Jane Smith",
-  "status": "complete"
-}
-```
-
-Response:
-```json
-{
-  "message": "Pilot added successfully",
-  "pilot": {
-    "id": 3,
-    "name": "Jane Smith",
-    "status": "complete"
-  }
-}
-```
-
----
-
-## 🐛 Common Issues & Fixes
-
-### Tailwind not working?
-
-- Check `tailwind.config.js`:
+- Ensure `tailwind.config.js` has:
 ```js
 content: ["./src/**/*.{html,ts}"]
 ```
 
-- Ensure `postcss.config.js` is present:
+- And `postcss.config.js`:
 ```js
 module.exports = {
   plugins: {
@@ -165,29 +98,10 @@ module.exports = {
 }
 ```
 
-### API CORS issues?
+### Icons not showing?
 
-NestJS enables CORS by default. Make sure the frontend is calling the correct `http://localhost:3000` endpoint.
-
----
-
-## 🧪 Testing
-
-### Frontend
-
-```bash
-ng test
-```
-
-### Backend (via curl)
-
-```bash
-curl http://localhost:3000/quote-request
-curl -X POST http://localhost:3000/quote-request/pilots   -H "Content-Type: application/json"   -d '{"name": "New Pilot", "status": "pending"}'
-```
-
----
+Ensure SVGs are correctly embedded or loaded, or use libraries like Heroicons or FontAwesome.
 
 ## 📄 License
 
-MIT — free for personal and commercial use.
+MIT – © Your Name or Company
