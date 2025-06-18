@@ -1,0 +1,32 @@
+<!-- quote-request.component.html -->
+<div class="max-w-md bg-gray-100 mx-auto p-4 space-y-6">
+  <!-- Header -->
+  <h2 class="text-sm text-gray-500 font-medium">Get a quote</h2>
+  <h1 class="text-2xl font-bold">Add your information</h1>
+
+  <ng-container *ngFor="let section of quoteSections">
+    <app-step-section
+      [stepTitle]="section.stepTitle"
+      [status]="section.status"
+      [statusColor]="section.statusColor"
+      [items]="section.items"
+      [icon]="section.icon">
+    </app-step-section>
+  </ng-container>
+
+  <!-- Info Box -->
+  <div class="bg-blue-100 text-blue-900 p-3 rounded-md flex items-start space-x-2 text-sm">
+    <div>
+      <svg class="w-5 h-5 mt-1" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+      </svg>
+    </div>
+    <div>
+      <p class="font-semibold">Are pilots information taking too long?</p>
+      <p>Edit pilots that are pending information and switch to manually fill their information. They’ll still receive an email to review and update later.</p>
+    </div>
+  </div>
+
+  <!-- Confirm Button -->
+  <button class="w-full bg-red-600 text-white font-semibold text-center py-3 rounded">Confirm</button>
+</div>
